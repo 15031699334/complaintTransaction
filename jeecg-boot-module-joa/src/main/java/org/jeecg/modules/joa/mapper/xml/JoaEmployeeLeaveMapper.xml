@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jeecg.modules.joa.mapper.JoaEmployeeLeaveMapper">
+
+    <!-- 我的任务 -->
+    <select id="queryTaskList" parameterType="Object" resultType="org.jeecg.modules.joa.model.JoaBizLeaveModel">
+        SELECT t.id,
+        t.name,
+        t.apply_no,
+        t.apply_date,
+        t.duty,
+        t.leave_category,
+        t.leave_reason,
+        t.leave_start_date,
+        t.leave_end_date,
+        t.total,
+        t.contact_way,
+        t.duty_deputy,
+        t.leader_approval,
+        t.dept_principal_approval,
+        t.hr_principal_approval,
+        t.hr_records,
+        t.department,
+        t.bpm_status,
+        x.ID_ as task_id,
+        x.ASSIGNEE_ as assignee,
+        x.CREATE_TIME_ as task_date,
+        x.NAME_ as task_name,
+        x.TASK_DEF_KEY_ as task_key,
+        x.PROC_INST_ID_ as process_inst_id
+        from  joa_employee_leave t
+        join ext_act_flow_data c on t.id = c.form_data_id
+        join
+        (
+        SELECT a.PROC_INST_ID_ ,a.ASSIGNEE_,a.ID_,a.NAME_,a.TASK_DEF_KEY_,a.CREATE_TIME_ from  ACT_RU_TASK a
+        WHERE a.SUSPENSION_STATE_ = 1
+        AND (
+        a.ASSIGNEE_ = #{query.assignee,jdbcType=VARCHAR}
+        OR
+        EXISTS (
+        SELECT 1 FROM ACT_RU_IDENTITYLINK b
+        where b.USER_ID_ = #{query.assignee,jdbcType=VARCHAR}
+        AND b.TASK_ID_ = a.ID_
+        and b.TYPE_ = 'candidate'
+        AND a.ASSIGNEE_ is null
+        )
+        )
+        )x on x.PROC_INST_ID_ = c.PROCESS_INST_ID
+        <if test="query.name != null and query.name != ''">
+            and t.name like '%${query.name}%'
+
+        </if>
+        <if test="query.applyNo != null and query.applyNo != ''">
+            and t.apply_no like '%${query.applyNo}%'
+        </if>
+        <if test="query.leaveCategory != null and query.leaveCategory != ''">
+            and t.leave_category = #{query.leaveCategory,jdbcType=VARCHAR}
+        </if>
+        order by t.create_time desc
+    </select>
+
+</mapper>

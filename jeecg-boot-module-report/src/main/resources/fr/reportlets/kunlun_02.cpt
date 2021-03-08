@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20100901">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[con2]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from tmp_report_data_income]]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager>
+<Location>
+<Embed position="1"/>
+</Location>
+<ToolBar>
+<Widget class="com.fr.report.web.ui.impl.page.First">
+<WidgetAttr disabled="true"/>
+<Text>
+<![CDATA[首页]]></Text>
+<IconName>
+<![CDATA[first]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Previous">
+<WidgetAttr disabled="true"/>
+<Text>
+<![CDATA[上一页]]></Text>
+<IconName>
+<![CDATA[previous]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.PageNavi">
+<WidgetAttr/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Next">
+<WidgetAttr disabled="true"/>
+<Text>
+<![CDATA[下一页]]></Text>
+<IconName>
+<![CDATA[next]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Last">
+<WidgetAttr disabled="true"/>
+<Text>
+<![CDATA[末页]]></Text>
+<IconName>
+<![CDATA[last]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Print">
+<WidgetAttr/>
+<Text>
+<![CDATA[打印]]></Text>
+<IconName>
+<![CDATA[print]]></IconName>
+<PrintButtons/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+<WidgetAttr/>
+<Text>
+<![CDATA[输出]]></Text>
+<IconName>
+<![CDATA[export]]></IconName>
+<Buttons pdf="true" excelP="true" excelO="true" excelS="true" word="true"/>
+</Widget>
+</ToolBar>
+</ToolBarManager>
+</ToolBars>
+<WebPage isPage="false" isShowAsImage="false"/>
+</WebPageContent>
+<Background name="NullBackground"/>
+<CacheValidateTime>
+<![CDATA[0]]></CacheValidateTime>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75"/>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[30,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,35,41,41,19]]></RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[101,94,71,90,72,72,72,72,72,72,72]]></ColumnWidth>
+<FloatElementList>
+<com.fr.report.FloatElement>
+<Location column="0" row="1" leftDistance="0" topDistance="0" width="644.0" height="274.0"/>
+<O t="CC">
+<LayoutAttr selectedIndex="0" columns="0"/>
+<Chart name="Default">
+<Chart class="com.fr.chart.Chart">
+<GI>
+<SeriesAttrBackground/>
+<SeriesAttrBorder>
+<Attr lineStyle="0" lineColor="-16777216" isRoundBorder="false"/>
+</SeriesAttrBorder>
+<SeriesAttrAlpha>
+<Attr alpha="1.0"/>
+</SeriesAttrAlpha>
+</GI>
+<ChartAttr isJSDraw="true"/>
+<Title>
+<GI>
+<SeriesAttrBackground/>
+<SeriesAttrBorder>
+<Attr lineStyle="0" lineColor="-16777216" isRoundBorder="false"/>
+</SeriesAttrBorder>
+<SeriesAttrAlpha>
+<Attr alpha="1.0"/>
+</SeriesAttrAlpha>
+</GI>
+<O>
+<![CDATA[图表标题]]></O>
+<TextAttr>
+<Attr alignText="0">
+<FRFont name="SimSun" style="0" size="12"/>
+</Attr>
+</TextAttr>
+<TitleVisible value="true"/>
+</Title>
+<Plot class="com.fr.chart.plot.PiePlot">
+<Plot>
+<GI>
+<SeriesAttrBackground/>
+<SeriesAttrBorder>
+<Attr lineStyle="0" lineColor="-16777216" isRoundBorder="false"/>
+</SeriesAttrBorder>
+<SeriesAttrAlpha>
+<Attr alpha="1.0"/>
+</SeriesAttrAlpha>
+</GI>
+<Attr isNullValueBreak="true"/>
+<NewSeriesCollection>
+<SeriesAttr class="com.fr.chart.plot.SeriesAttr">
+<SeriesAttr/>
+</SeriesAttr>
+</NewSeriesCollection>
+<Legend>
+<GI>
+<SeriesAttrBackground/>
+<SeriesAttrBorder>
+<Attr lineStyle="1" lineColor="-8355712" isRoundBorder="true"/>
+</SeriesAttrBorder>
+<SeriesAttrAlpha>
+<Attr alpha="1.0"/>
+</SeriesAttrAlpha>
+</GI>
+<Attr position="4" legendNum="10" visible="true" autoAdjustSize="false"/>
+<FRFont name="SimSun" style="0" size="12"/>
+</Legend>
+<PieAttr startAngle="100" separate="0"/>
+</Plot>
+</Plot>
+</Chart>
+</Chart>
+<MoreNameCDDefinition>
+<Top topCate="-1" topValue="-1"/>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[ds1]]></Name>
+</TableData>
+<CategoryName value="biz_income"/>
+<ChartSummaryColumn name="total" function="com.fr.data.util.function.NoneFunction" customName="total"/>
+</MoreNameCDDefinition>
+</O>
+<Style index="0"/>
+</com.fr.report.FloatElement>
+</FloatElementList>
+<CellElementList>
+<C c="0" r="0" cs="8" s="1">
+<O>
+<![CDATA[来源收入统计]]></O>
+<Expand/>
+</C>
+<C c="0" r="1" cs="8" rs="7">
+<Expand/>
+</C>
+<C c="0" r="17" s="2">
+<O>
+<![CDATA[业务来源]]></O>
+<Expand/>
+</C>
+<C c="1" r="17" s="2">
+<O>
+<![CDATA[保险经纪佣金费]]></O>
+<Expand/>
+</C>
+<C c="2" r="17" s="2">
+<O>
+<![CDATA[风险咨询费]]></O>
+<Expand/>
+</C>
+<C c="3" r="17" s="2">
+<O>
+<![CDATA[承保公证评估费]]></O>
+<Expand/>
+</C>
+<C c="4" r="17" s="2">
+<O>
+<![CDATA[保险公证费]]></O>
+<Expand/>
+</C>
+<C c="5" r="17" s="2">
+<O>
+<![CDATA[投标咨询费]]></O>
+<Expand/>
+</C>
+<C c="6" r="17" s="2">
+<O>
+<![CDATA[内控咨询费]]></O>
+<Expand/>
+</C>
+<C c="7" r="17" s="2">
+<O>
+<![CDATA[总计]]></O>
+<Expand/>
+</C>
+<C c="0" r="18" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="biz_income"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="1" r="18" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="bx_jj_yongjin"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="2" r="18" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="bx_zx_money"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="3" r="18" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="chengbao_gz_money"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="18" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="bx_gg_moeny"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="5" r="18" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="tb_zx_money"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="6" r="18" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="neikong_zx_money"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="7" r="18" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="total"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="0" r="19" s="5">
+<O>
+<![CDATA[合计：]]></O>
+<Expand/>
+</C>
+<C c="1" r="19" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="bx_jj_yongjin"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="2" r="19" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="bx_zx_money"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="3" r="19" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="chengbao_gz_money"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="4" r="19" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="bx_gg_moeny"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="5" r="19" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="tb_zx_money"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="6" r="19" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="neikong_zx_money"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="7" r="19" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="total"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+</CellElementList>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style>
+<Format class="java.text.DecimalFormat">
+<![CDATA[#0]]></Format>
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="ColorBackground" color="-1"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="ColorBackground" color="-13382452"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style>
+<Format class="java.text.DecimalFormat">
+<![CDATA[#,##0.00]]></Format>
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>

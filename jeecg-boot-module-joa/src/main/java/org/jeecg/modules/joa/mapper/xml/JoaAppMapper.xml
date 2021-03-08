@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jeecg.modules.joa.mapper.JoaAppMapper">
+
+    <!-- 查询 online表单的草稿箱 -->
+    <select id="queryDraftList" parameterType="Object" resultType="org.jeecg.modules.joa.model.DraftModel">
+        select
+            a.bpm_status,
+            a.form_table_name,
+            a.create_time,
+            a.process_name as title,
+            a.form_type,
+            ( case when a.form_type = '1' then d.id else e.desform_code end ) as table_code,
+            ( case when a.form_type = '1' then d.table_txt else e.desform_name end ) as table_txt,
+            ( case when a.form_type = '1' then a.form_data_id else e.desform_data_id end ) as data_id,
+            e.id as design_id
+         from ext_act_flow_data a
+         left join onl_cgform_head d on d.table_name = a.form_table_name
+         left join ext_act_design_flow_data e on e.id = a.form_data_id
+         where a.bpm_status = '1'
+            and a.form_type in ('1','2')
+            and a.create_by = #{query.createBy,jdbcType=VARCHAR}
+         order by a.create_time desc
+    </select>
+
+</mapper>

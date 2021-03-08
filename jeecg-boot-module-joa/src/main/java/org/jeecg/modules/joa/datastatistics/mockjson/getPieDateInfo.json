@@ -1,0 +1,28 @@
+{
+	"success": true,
+	"message": "查询成功",
+	"code": null,
+	"result": [
+		{
+			"item": "资产管理类",
+			"count": 40
+		},
+		{
+			"item": "行政管理类",
+			"count": 10
+		},
+		{
+			"item": "人事管理类",
+			"count": 15
+		},
+		{
+			"item": "合同管理类",
+			"count": 30
+		},
+		{
+			"item": "公文管理类",
+			"count": 5
+		}
+	],
+	"timestamp": 1554285003594
+}

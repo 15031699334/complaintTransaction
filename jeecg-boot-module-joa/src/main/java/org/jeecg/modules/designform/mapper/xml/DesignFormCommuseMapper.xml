@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jeecg.modules.designform.mapper.DesignFormCommuseMapper">
+    <!--根据用户id查询已设置常用表单-->
+    <select id="getCommuseByUserId" parameterType="string" resultType="org.jeecg.modules.designform.model.SysRoleDeisgnModel">
+        SELECT
+        df.id,
+        df.desform_code,
+        df.desform_name,
+        ea.pc_icon AS desform_icon,
+        ea.app_icon,
+        ea.process_type AS procType,
+        ea.process_name AS procName,
+        ef.title_exp
+        FROM
+        design_form df
+        JOIN design_form_commuse dc ON df.id = dc.desform_id
+        JOIN ext_act_process_form ef ON df.desform_code = ef.form_table_name
+        JOIN ext_act_process ea ON ef.process_id = ea.id
+        WHERE
+        dc.user_id = #{userId}
+    </select>
+</mapper>

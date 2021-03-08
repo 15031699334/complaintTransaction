@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jeecg.modules.designform.mapper.SysRoleDesignFormMapper">
+    <!--根据角色查询已授权表单-->
+    <select id="getRoleDegisnList" parameterType="string" resultType="org.jeecg.modules.designform.model.DesignFormModel">
+        SELECT
+        df.*,
+        ea.process_type AS procType
+        FROM
+        design_form df
+        JOIN sys_role_design rd ON df.id = rd.design_id
+        JOIN ext_act_process_form ef ON df.desform_code = ef.form_table_name
+        JOIN ext_act_process ea ON ef.process_id = ea.id
+        WHERE
+        rd.role_id = #{roleId}
+    </select>
+
+    <!--查询表单关联流程-->
+    <select id="roleDegisnList" parameterType="string" resultType="org.jeecg.modules.designform.model.SysRoleDeisgnModel">
+        SELECT
+        df.id,
+        df.desform_code,
+        df.desform_name,
+        ea.pc_icon as desformIcon,
+        ea.app_icon,
+        ea.process_type AS procType,
+        ea.process_name AS procName,
+        ef.title_exp
+        FROM
+        design_form df
+        JOIN ext_act_process_form ef ON df.desform_code = ef.form_table_name
+        JOIN ext_act_process ea ON ef.process_id = ea.id
+        WHERE
+        EXISTS (
+        SELECT
+        a.id
+        FROM
+        design_form a
+        JOIN sys_role_design sd ON a.id = sd.design_id
+        JOIN sys_role b ON sd.role_id = b.id
+        JOIN sys_user_role c ON b.id = c.role_id
+        JOIN sys_user d ON c.user_id = d.id
+        WHERE
+        a.id = df.id
+        AND d.username = #{username}
+        )
+        AND ef.form_type = 2
+        <if test="procType !=null and procType != ''">
+            AND ea.process_type=#{procType}
+        </if>
+    </select>
+
+    <!-- 查看online表单 -->
+    <select id="queryOnlineFormList" parameterType="string" resultType="org.jeecg.modules.designform.model.SysRoleDeisgnModel">
+        SELECT
+        df.id,
+        df.table_name AS desform_code,
+        df.table_txt AS desform_name,
+        ea.process_type AS proc_type,
+        ea.process_name AS proc_name,
+        ef.title_exp,
+        ea.app_icon
+        FROM
+        onl_cgform_head df
+        JOIN ext_act_process_form ef ON df.table_name = ef.form_table_name
+        JOIN ext_act_process ea ON ef.process_id = ea.id
+        WHERE ef.form_type = '1'
+        <if test="procType !=null and procType != ''">
+            AND ea.process_type=#{procType}
+        </if>
+    </select>
+</mapper>
